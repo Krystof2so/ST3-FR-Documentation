@@ -1,0 +1,328 @@
+\documentclass[french,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage{color}
+
+\usepackage{hyperref}
+
+\title{SublimeText 3}
+\author{Krystof2so}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{\textcolor{magenta}{Juste pour se familiariser}}
+Pour tout ce qui concerne l'utilisation de \texttt{SublimeText} l'utisateur
+ est invité à se rendre dans le répertoire:
+\begin{verbatim}
+    ~/.config/sublime-text-3
+\end{verbatim}
+\medskip
+
+Le répertoire \verb|/Packages| contient le répertoire \verb|/User| qui est le
+ répertoire fourre-tout de l'utilisateur ((accessible par \texttt{Preferences}
+ -> \texttt{Browse Packages}). On y retrouve les greffons personnalisés, les
+ \textit{snippets}, les macros, etc. Il est à considérer comme votre espace 
+ personnel qu'aucun mise à jour de \texttt{SublimeText} n'écrasera.
+\medskip
+
+Il est à noter que \texttt{SublimeText} est programmable, ce qui permet aux
+utilisateurs ayant des compétences en programmation d'ajouter leurs propres
+fonctionnalités, en utilisant le langage \texttt{Python}.
+\medskip
+
+\texttt{SublimeText} est doté d'une console \texttt{Python} que l'on peut
+ ouvrir via \texttt{View} -> \texttt{Show Console}. Ainsi, un interpréteur
+ \texttt{Python} est intégré à l'éditeur (séparé de l'interpréteur 
+ \texttt{Python} du système. Cet interpréteur est alors utile pour inspecter
+ les paramètres de l'éditeur et pour tester rapidement des appels d'API lors du
+ développement de greffons. 
+\fcolorbox{red}{yellow}{Capture d'écran}.
+\medskip
+
+Presque tous les aspects du \texttt{SublimeText} peuvent être étendus ou
+ personnalisés. La grande flexibilité de \texttt{SublimeText} explique pourquoi
+ il y a tant de fichiers de configuration. Les fichiers de configuration de 
+ \texttt{SublimeText} sont des fichiers texte qui se conforment à une structure
+ ou un format prédéfini : \texttt{JSON} prédomine, mais on trouve aussi des 
+ fichiers \texttt{XML} et \texttt{YAML}. Pour les options d'extensibilité plus
+ avancées ce sont des fichiers de code source \texttt{Python} qui sont 
+ utilisés.
+\medskip
+
+D'autre part \texttt{SublimeText} fournit une émulation de \texttt{vim} grâce 
+ au paquet \texttt{Vintage}. Ce paquet est ignoré par défaut et doit être 
+ activé par l'utilisateur\footnote{Voir à ce sujet: 
+ \url{https://www.sublimetext.com/docs/3/vintage.html}}.
+\bigskip
+
+
+\section{\textcolor{magenta}{Pour une utilisation basique}}
+
+\subsection*{L'édition}
+Les fonctions d'édition sont multiples et variées.
+\bigskip
+
+\subsection*{La gestion des fichiers et des projets}
+Les projets regroupent des ensembles de fichiers et de dossiers qui vous
+ permettent de garder votre travail organisé. 
+\medskip
+
+Il y a toujours un projet actif, même si vous n'en avez pas créé ou ouvert un.
+ Dans cette situation, vous travaillez avec un projet anonyme, dont les
+ fonctionnalités sont limitées. Les nouvelles fenêtres utilisent toujours un
+ projet anonyme lorsqu'elles s'ouvrent pour la première fois.
+\medskip
+
+Les métadonnées du projet sont stockées dans des fichiers \texttt{JSON} avec 
+ une extension \texttt{.sublime-project}. Partout où il y a un fichier 
+ \texttt{.sublime-project}, vous trouverez également un fichier 
+ \texttt{.sublime-workspace} auxiliaire. Ce fichier contient des données de 
+ session que vous ne devez jamais modifier. 
+\medskip
+
+\textbf{Créer un projet}: \\
+Commencer par un projet anonyme en ouvrant une nouvelle fenêtre ou en fermant
+ tout projet actif avec le menu \texttt{Project} -> \texttt{Close project}.
+ Nous pouvons alors ajouter et supprimer des dossiers à un projet à l'aide du 
+ menu \texttt{Project} ou du menu contextuel de la barre latérale. Faire 
+ glisser un dossier sur une fenêtre de \texttt{SublimeText} ajoutera également
+ le fichier au projet. Pour enregistrer un projet anonyme, se rendre sur dans
+ \texttt{Project} -> \texttt{Save Project As\dots}. Une fois le projet 
+ enregistré, il demeure modifiable.
+ \medskip
+
+\textbf{Ouvrir des projets}: \\ 
+L'onglet \texttt{Project} fournit diverses
+ possibilité d'ouverture. De plus, vous pouvez ouvrir un projet en ligne de
+ commande en passant le fichier \texttt{.sublime-project} en argument à l'aide
+ de la commande permettant l'ouverture de Sublime Text.
+\medskip
+
+\textbf{Les espaces de travail (\textit{Workspaces})}: \\ 
+Les espaces de travail contiennent des données de session associées à un 
+ projet, qui comprennent des informations sur les fichiers ouverts, la 
+ disposition des volets, l'historique des recherches et bien plus encore. Un 
+ projet peut avoir plusieurs espaces de travail. Les espaces de travail se 
+ comportent comme des projets. Pour créer un nouvel espace de travail, 
+ sélectionnez \texttt{Project} -> \texttt{New Workspace For Project}. Pour
+ enregistrer l'espace de travail actif, sélectionnez \texttt{Project} -> 
+ \texttt{Save Project As...}. Les métadonnées de l'espace de travail sont 
+ stockées dans des fichiers \texttt{JSON} et portent l'extension 
+ \texttt{.sublime-workspace}, que vous n'êtes pas censé modifier. Contrairement
+ aux fichiers \texttt{.sublime-projet}, les fichiers 
+ \texttt{.sublime-workspace} ne sont pas destinés à être partagés, vous ne 
+ devez donc jamais livrer des fichiers \texttt{.sublime-workspace} dans un 
+ dépôt de code source.
+\bigskip
+
+\subsection*{La navigation}
+\textbf{Goto Anything}: \texttt{[Ctrl] + T} \\
+En utilisant \texttt{Goto Anything}, vous pouvez naviguer rapidement dans les
+ fichiers de votre projet. \texttt{Goto Anything} accepte divers opérateurs. \\
+\medskip
+
+Le symbole \og \texttt{:}\fg{} : \texttt{[Ctrl] + G}
+\begin{verbatim}
+    fichier1:100
+\end{verbatim}
+
+Cela indique à Sublime Text de rechercher d'abord un fichier dont le chemin
+ d'accès correspond à \textit{fichier1}, puis de se rendre à la ligne 100 dans
+ le dit fichier. \\
+\medskip
+
+Le symbole \texttt{\@}: \texttt{[Ctrl] + R}
+\begin{verbatim}
+    @ma_variable
+\end{verbatim}
+
+Recherche dans le fichier actif le symbole nommé \textit{ma\_variable}. Les
+symboles comprennent généralement des noms de classe et de fonction.
+\medskip
+
+Le symbole \texttt{\#}: \texttt{[Ctrl] + ;}
+\begin{verbatim}
+    #verb
+\end{verbatim}
+
+Recherche les termes dans lequel va figurer l'exression \textit{verb}.
+\medskip
+
+La barre latérale donne un aperçu du projet actif. Les fichiers et dossiers de
+ la barre latérale seront disponibles dans le menu \texttt{Goto Anything}. 
+ Projets et barre latérale sont étroitement liés. Il est important de noter 
+ qu'il y a toujours un projet actif ; si vous n'avez pas ouvert de fichier de 
+ projet, un projet anonyme sera utilisé à la place. La barre latérale fournit 
+ des opérations de base de gestion de fichiers grâce à son menu contextuel. 
+\bigskip
+
+\subsection*{Rechercher et remplacer}
+\textbf{Sur fichier unique}: \\
+\begin{description}
+	\item[Ouvrir le panneau de recherche]: \texttt{[Ctrl] + F}
+	\item[Ouvrir le panneau de recherche progressive]: \texttt{[Ctrl] + I}
+	\item[Basculer sur le mode des expressions régulières]: \texttt{[Alt] + R}
+	\item[Sensibilité à la casse]: \texttt{[Alt] + C}
+	\item[Correspondance exacte]: \texttt{[Alt] + W}
+	\item[Ouvrir le panneau de remplacement]: \texttt{[Ctrl] + H}
+	\item[Tout remplacer]: \texttt{[Ctrl] + [Alt] + [Entrée]}
+\end{description}
+\bigskip
+
+\textbf{Sur plusieurs fichiers}:\\
+\begin{description}
+	\item[Ouvrir le panneau de recherche]: \texttt{[Ctrl] + [Shift] + F} 
+	\item[Basculer sur le mode des expressions régulières]: \texttt{[Alt] + R}
+	\item[Sensibilité à la casse]: \texttt{[Alt] + C}
+	\item[Correspondance exacte]: \texttt{[Alt] + W}
+\end{description}
+\medskip
+
+Il est également possible de paramétrer la portée de la recherche, en
+ définisant les champs de recherche par l'ajout de répertoires individuels
+ (chemins d'accès de type Unix, même sous Windows), par l'ajout/exclusion de
+ fichiers basés sur des jokers (\og *\fg{}) ou l'ajout d'emplacements 
+ symboliques (\texttt{<open folders>}, \texttt{<open files>} \dots). Il est 
+ également possible de combiner ces filtres en utilisant des virgules.
+\medskip
+
+Vous pouvez naviguer dans les résultats de recherche à l'aide des raccourcis
+suivants:
+\begin{description}
+	\item[Occurence suivante]: \texttt{[F4]}
+	\item[Occurence précédente]: \texttt{[Shift] + [F4]}
+	\item[Se rendre d'une occurence à une autre]: \texttt{[Entrée]}
+\end{description}
+\bigskip
+
+\textbf{Les expressions régulières (\textit{regexp} ou \textit{regex})}:\\
+Les expressions régulières permettent de trouver des motifs complexes dans un
+ texte. Pour profiter pleinement des possibilités de recherche et de 
+ remplacement, vous devriez au moins apprendre les bases des expressions 
+ régulières. Pour les utiliser vous devez d'abord les activer dans les 
+ différents panneaux de recherche (\texttt{[Alt] + R}), sinon, les termes 
+ recherchés seront interprétés littéralement.
+\bigskip
+
+\section{\textcolor{magenta}{Personnalisation de \texttt{Sublime Text}}}
+Voyons les options les plus courantes afin de personnaliser entièrement Sublime
+ Text.
+\bigskip
+
+\subsection*{Les paramètres (\textit{Settings})}
+\texttt{Sublime Text} stocke les données de configuration dans des fichiers 
+ portant l'extension \texttt{.sublime-settings}. La flexibilité s'obtint au
+ prix d'un système légèrement complexe s'agissant des paramètres. Il faudra
+ veillez à toujours placer ses fichiers de configuration personnels, afin de
+ garantir qu'ils auront la priorité sur tout autre fichier de configuration,
+ dans le répertoire:
+\begin{verbatim}
+    ~/.config/sublime-text-3/Packages/User
+\end{verbatim}
+\medskip
+
+Ces fichiers de paramètrage sont au format \texttt{JSON}. Le nom de chaque 
+ fichier de type \texttt{.sublime-settings} détermine sa finalité. Les noms 
+ peuvent être descriptifs (comme \texttt{Preferences.sublime-settings} ou 
+ \texttt{Minimap.sublime-settings}, ou ils peuvent être liés aux paramètres de
+ contrôle. Les fichiers syntaxiques propres aux langages de programmation sont
+ aussi reconnaissables (exemple: \texttt{Python.sublime-settings}). En outre, 
+ certains fichiers de paramètres ne s'appliquent qu'à des plates-formes 
+ spécifiques. Cela peut se déduire à partir du nom du fichier, comme par 
+ exemple \texttt{Preferences (\{Linux\}).sublime-settings}. A noter que de tels
+ fichiers de réglages spécifiques à une plate-forme situés dans le répertoire
+ \texttt{Packages/User} sont ignorés. De cette façon, vous pouvez être sûr 
+ qu'un seul fichier de ce type a priorité sur tous les autres. Enfin, sachez
+ que les modifications de paramètres sont généralement prises en compte par 
+ \texttt{Sublime Text} en temps réel, mais vous devrez peut-être redémarrer 
+ l'éditeur afin de charger de nouveaux fichiers de paramètres.
+\medskip
+
+Pour accéder aux fichiers de paramètres et les modifier il faudra passer par le
+ menu \texttt{Preferences} -> \texttt{Settings}. Seront alors ouverts en 
+ parallèle les fichiers:
+\begin{center}
+\begin{verbatim}
+    Preferences.sublime-settings User
+\end{verbatim}
+\medskip
+et
+\begin{verbatim}
+    Preferences.sublime-settings Default.
+\end{verbatim}
+\end{center}
+L'édition de ce dernier est fortement déconseillée, mais vous pouvez utiliser 
+ ce fichier à titre de référence puisqu'il contient les commentaires expliquant
+ la finalité de tous les paramétrages globaux disponibles.
+\medskip
+
+Le même fichier de paramètres (tel que Python.sublime-settings) peut
+apparaître à plusieurs endroits. Tous les paramètres définis dans des fichiers
+de nom identique seront fusionnés et écrasés selon des règles prédéfinies. 
+Ci-dessous, vous pouvez voir l'ordre dans lequel \texttt{Sublime Text} 
+traiterait une hiérarchie hypothétique de paramètres pour les fichiers Python:
+\begin{itemize}
+    \item Packages/Default/Preferences.sublime-settings
+    \item Packages/Default/Preferences (votre\_système).sublime-settings
+    \item Packages/User/Preferences.sublime-settings
+    \item Packages/Python/Python.sublime-settings
+    \item Packages/User/Python.sublime-settings 
+\end{itemize}
+\bigskip
+
+\subsection*{Les raccourcis claviers (\textit{Key Bindings})}
+Les combinaisons de touches sont définies au format \texttt{JSON} et stockées 
+ dans des fichiers portant l'extension \texttt{.sublime-keymap}. Dans le même 
+ répertoire, des fichiers \textit{keymap} séparés pour \texttt{Linux}, 
+ \texttt{OSX} et \texttt{Windows} peuvent co-exister pour une meilleure 
+ intégration au système d'exploitation. Exemple:
+\begin{verbatim}
+    [
+        { "keys": ["ctrl+shift+n"], "command": "new_window" },
+        { "keys": ["ctrl+o"], "command": "prompt_open_file" }
+    ]
+\end{verbatim}
+\medskip
+
+\texttt{Sublime Text} est livré avec des raccourcis clavier par défaut. Afin de
+ pouvoir les remplacer ou d'en ajouter de nouveaux, utilisez un fichier 
+ \textit{keymap} séparé avec une priorité plus élevée en le plaçant dans le 
+ répertoire \texttt{Packages/User}.
+\medskip
+
+Les raccourcis clavier simples consistent en une séquence d'une ou plusieurs 
+ touches associées à une commande. Cependant, il existe des syntaxes plus 
+ complexes pour passer des arguments aux commandes et pour restreindre les 
+ raccourcis clavier à des contextes spécifiques. Exemple:
+\begin{verbatim}
+    [
+        { "keys": ["shift+enter"], "command": "insert", "args": 
+            {"characters": "\n"} }
+    ]    
+\end{verbatim}
+\medskip
+
+Dans cet exemple, \og \textbackslash{n}\fg{} est passé à la commande 
+ d'insertion à chaque fois que l'on presse les touches \texttt{[Shift]} + 
+ \texttt{[Entrée]}.  
+\medskip
+
+Vous pouvez créer raccourcis composés de plusieurs combinaisons de raccourcis.
+Exemple:
+\begin{verbatim}
+    { "keys": ["ctrl+k", "ctrl+v"], "command": 
+              "paste_from_history" }
+\end{verbatim}
+\medskip
+
+Ici, pour déclencher la commande \textit{paste\_from\_history}, vous devez 
+ d'abord presser les touches \texttt{[Ctrl] + K}, puis relâcher la touche 
+ \texttt{K}, et enfin appuyer sur la touche \texttt{V}. Cet exemple est une
+ liaison de touches par défaut que vous pouvez donc essayer.
+ \bigskip
+
+\end{document}
