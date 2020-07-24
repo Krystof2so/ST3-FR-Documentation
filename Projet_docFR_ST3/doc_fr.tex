@@ -380,5 +380,70 @@ de mots.
 \bigskip
 
 \subsection*{Les packages}
+Les packages contiennent diverses ressources pour compléter \texttt{Sublime 
+Text}. Il existe des packages ayant diverses finalités stockés dans tois
+emplacements précis.
+\begin{itemize}
+    \item Les répertoires \textit{Data/Packages}
+    \item Des fichiers portant l'extension \texttt{.sublime-package} situés 
+    dans le répertoire \textit{Data/Installed Packages}.
+    \item Il existe aussi les \textit{packages snipped}.
+\end{itemize}
+\medskip
+
+Les paquets distribués sous forme d'archives \texttt{zip} 
+(\texttt{.sublime-package}) doivent être considérés comme des conteneurs de 
+ressources en lecture seule et ne doivent jamais être modifiés manuellement.
+\medskip
+
+Tout fichier dans \textit{Packages/PackageName} a la priorité sur un fichier 
+portant le même nom dans 
+\textit{Installed Packages/PackageName.sublime-package}.
+\medskip
+
+Les ressources typiques que l'on trouve dans les paquets comprennent :
+\begin{itemize}
+    \item build systems (.sublime-build) - Les systèmes de construction
+    \item color schemes (.sublime-color-scheme, .tmTheme) - Les schémas de couleurs
+    \item key maps (.sublime-keymap) - Les touches clavier
+    \item macros (.sublime-macro) - Les macros
+    \item menus (.sublime-menu) - Les menus
+    \item metadata (.tmPreferences) - Les métadonnées
+    \item mouse maps (.sublime-mousemap) - La souris
+    \item plugins (.py) - Les plugins
+    \item settings (.sublime-settings) - Les paramètres
+    \item snippets (.sublime-snippet) - Les snippets
+    \item syntax definitions (.sublime-syntax, .tmLanguage) - Les définitions syntaxiques
+    \item themes (.sublime-theme) - Les thèmes
+\end{itemize}
+\medskip
+
+Les types de paquets:
+\begin{description}
+    \item{Les \textit{shipped packages} et les paquets par défaut}: Un ensemble de paquets avec lesquels \texttt{Sublime Text} est livré. Certains de ces paquets sont des paquets de base, tandis que d'autres améliorent \texttt{Sublime Text} pour prendre en charge les langages de programmation courants 
+    \item{Les paquets de base}: Paquets nécessaires au bon fonctionnement de \texttt{Sublime Text}.
+    \item{Les paquets des utilisateurs}: Installés ou créés par l'utilisateur pour étendre les fonctionnalités de \texttt{Sublime Text}.
+    \item{Les paquets installés}: Les paquets installés sont des archives \texttt{.sublime-package} et sont généralement maintenus par un gestionnaire de paquets.
+    \item{ Les paquets \textit{Override}}: Ils servent à personnaliser les paquets qui sont distribués sous forme de fichiers \texttt{.sublime-package}. Ils sont effectivement injectés dans le paquet original et ne sont pas autonomes.
+\end{description}
+\medskip
+
+La gestion des paquets:
+\begin{description}
+    \item{Installation des paquets}: Les utilisateurs réguliers ont rarement besoin de savoir comment installer des paquets à la main, car des gestionnaires de paquets automatiques sont disponibles.
+    \item{Désactiver les paquets}: Pour désactiver temporairement des paquets, vous pouvez les ajouter à la liste \texttt{ignored\_packages} dans votre fichier \textit{Packages/User/Preferences.sublime-settings}. Les paquets seront chargés ou déchargés selon les besoins lors de l'enregistrement du fichier de configuration.
+    \item{Réactiver un paquet}: Supprimez le nom du paquet de la liste \texttt{ignored\_packages} dans votre fichier \textit{Packages/User/Preferences.sublime-settings}.
+    \item{Suppression des paquets}: Si vous avez installé un paquet avec un gestionnaire de paquets, supprimez-le en utilisant la méthode fournie par le gestionnaire de paquets. Les plugins peuvent créer des fichiers de configuration (tels que les fichiers \texttt{.sublime-settings}) ou d'autres fichiers pour stocker les données relatives au paquet. Vous les trouverez souvent dans le paquet \texttt{User}. Par conséquent, si vous souhaitez supprimer toute trace d'un paquet, vous devrez trouver et supprimer tous les fichiers supplémentaires qu'il peut avoir installés.
+\end{description}
+\medskip
+
+Pour revenir à la configuration par défaut de \texttt{Sublime Text} et supprimer
+tous vos paramètres et configurations, supprimez le répertoire \textit{Data} et 
+redémarrez l'éditeur. Gardez à l'esprit que le dossier 
+\textit{Installed Packages} sera également supprimé, vous perdrez donc tous vos 
+paquets installés.
+\bigskip
+
+\subsection*{Les plugins}
 
 \end{document}
